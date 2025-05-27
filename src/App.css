@@ -1,0 +1,225 @@
+/* FONTS ************************************/
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('/public/fonts/RoobertMonoTRIAL-Regular-BF67243fd29a433.otf') format('otf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('/public/fonts/RoobertMonoTRIAL-Light-BF67243fd27eae5.otf') format('otf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('/public/fonts/RoobertMonoTRIAL-SemiBold-BF67243fd2c0028.otf') format('otf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* GLOBAL ************************************/
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.container {
+  margin: 0;
+  font-family: 'Roobert', sans-serif;
+  background: white;
+  color: black;
+  height: 100vh;
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* NAV ************************************/
+
+
+
+.nav {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  justify-content: space-between;
+  padding: 0px 32px;
+  font-size: 14px;
+}
+
+.logo {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.logo span {
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.nav__btn {
+  background: black;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+
+
+/* LANDING ************************************************/
+
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.landing__title h1 {
+  font-size: 60px;
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.landing__para {
+  position: absolute;
+  width: 20%;
+  bottom: 30px;
+  left: 40px;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.side__btn--wrapper {
+  position: absolute;
+  top: 50%;
+  width: 240px;
+  height: 240px;
+  border: 1px dotted #999;
+  background: white;
+  transform: translateY(-50%) rotate(45deg);
+  transform-origin: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.side__btn--wrapper.right {
+  right: -120px;
+}
+
+.side__btn--wrapper.left {
+  left: -120px;
+}
+
+.side__btn--content {
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding-left: 30px; 
+  padding-right: 30px;
+  text-align: left;
+}
+
+.side__btn--wrapper.left .side__btn--content {
+  align-items: flex-end;
+  text-align: right;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.side__btn--content span {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.arrow {
+  margin-top: 8px;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+
+/* .side__btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  writing-mode: horizontal-tb;
+  font-size: 14px;
+  text-transform: uppercase; 
+}
+
+.side__btn.left {
+  left: 30px;
+}
+
+.side__btn.right {
+  right: 30px;
+} */
+
+.btn__icon {
+  width: 30px;
+}
+
+
+
+
+/* SMALL PHONES, TABLETS, LARGE SMARTPHONES ***************************/
+
+@media (max-width: 768px) {
+
+  .landing__para {
+    position: absolute;
+    width: 50%;
+    bottom: 30px;
+    left: 40px;
+    font-size: 8px;
+    text-transform: uppercase;
+    line-height: 1.6;
+  }
+
+}
+
+/* SMALL PHONES, LARGE SMARTPHONES */
+@media (max-width: 550px) {
+
+}
