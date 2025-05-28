@@ -59,6 +59,13 @@ body {
   flex-direction: column;
 }
 
+.back__button--wrapper {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10;
+}
+
 .btn__back {
   display: flex;
   align-items: center;
@@ -71,6 +78,29 @@ body {
 }
 
 button.btn__back {
+  margin-bottom: 14px;
+}
+
+.proceed__button--wrapper {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10;
+}
+
+.btn__proceed {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  flex-direction: row-reverse;
+  gap: 16px;
+  width: 32px;
+  text-align: left;
+  background-color: #ffffff00;
+  border: none;
+}
+
+button.btn__proceed {
   margin-bottom: 14px;
 }
 
@@ -278,8 +308,204 @@ button.btn__back {
 
 
 
+/* LOCATION ************************************************/
+
+
+.location__page {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  padding: 8vh 2vw 0;
+  font-family: 'Roobert', sans-serif;
+  background: white;
+  overflow: hidden;
+}
+
+.location__header {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  padding-top: 12px;
+  letter-spacing: -0.5px;
+}
+
+.location__main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -48px;
+}
+
+.location__input--center {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.location__input--header {
+  font-size: 12px;
+  font-weight: 300;
+  color: #878787;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.location__input input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 42px;
+  color: #000;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+
+}
+
+
+
+/* START ANALYSIS ************************************************/
+
+
+.startAnalysis__page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  padding: 8vh 2vw 0;
+  background: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.startAnalysis__header {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  padding-top: 12px;
+  letter-spacing: -0.5px;
+}
+
+.startAnalysis__main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -48px;
+}
+
+.startAnalysis__input--center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.startAnalysis__input--header {
+  font-size: 12px;
+  font-weight: 300;
+  color: #878787;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.startAnalysis__input input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 42px;
+  color: #000;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.icon__container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.icon__container::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 40px;
+  background-color: black;
+  margin-right: 8px;
+  position: absolute;
+  left: calc(50% - 24px); 
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.icon__centered {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+}
+
+.icon__label--group {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+  margin-left: 16px;
+}
+
+.icon__label--group--left {
+  left: auto;
+  right: 100%;
+  margin-left: 0;
+  margin-right: 16px;
+  flex-direction: row-reverse;
+}
+
+.icon__line {
+  width: 80px;
+  height: 1px;
+  background-color: black;
+  margin-right: 8px;
+}
+
+.icon__label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  line-height: 1.2;
+}
+
+.input__module {
+  width: 500px;
+  max-width: 100%;
+}
+
+
+
 
 /* ROTATING BOXES ************************************/
+
 
 @keyframes rotate {
   0% {
@@ -313,21 +539,48 @@ button.btn__back {
   width: 500px;
   height: 500px;
   z-index: 1;
-  animation-duration: 40s;
+  animation-duration: 60s;
+  opacity: 25%;
 }
 
 .rotating__box--2 {
   width: 450px;
   height: 450px;
   z-index: 2;
-  animation-duration: 30s;
+  animation-duration: 120s;
+  opacity: 40%;
 }
 
 .rotating__box--1 {
   width: 400px;
   height: 400px;
   z-index: 3;
-  animation-duration: 20s;
+  animation-duration: 240s;
+  opacity: 85%;
+}
+
+.rotating__box--6 {
+  width: 350px;
+  height: 350px;
+  z-index: 1;
+  animation-duration: 60s;
+  opacity: 25%;
+}
+
+.rotating__box--5 {
+  width: 300px;
+  height: 300px;
+  z-index: 2;
+  animation-duration: 120s;
+  opacity: 40%;
+}
+
+.rotating__box--4 {
+  width: 250px;
+  height: 250px;
+  z-index: 3;
+  animation-duration: 240s;
+  opacity: 85%;
 }
 
 .input__overlay {
@@ -340,6 +593,17 @@ button.btn__back {
   height: 400px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input__overlay--camera {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -423,6 +687,36 @@ button.btn__back {
   .arrow {
     width: 15px;
     height: 15px;
+  }
+
+  .rotating__wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .rotating__box--4 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .rotating__box--5 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .rotating__box--6 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .camera-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .input__overlay--camera {
+    width: 300px;
+    height: 300px;
   }
 
 }
