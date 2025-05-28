@@ -73,21 +73,30 @@ body {
 
 .logo {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
+  display: inline-block;
 }
 
-.logo span {
-  font-size: 12px;
+.logo span.bracket {
+  font-size: 18px;
+  font-weight: 100;
+  position: relative;
+  top: 1.5px;
+}
+
+.logo span.intro {
+  font-size: 10px;
+  vertical-align: baseline;
   font-weight: 100;
 }
 
 .nav__btn {
   background: black;
   color: white;
-  padding: 6px 12px;
+  padding: 10px 12px;
   border: none;
   font-size: 12px;
-  cursor: pointer;
+  cursor: not-allowed;
 }
 
 
@@ -100,14 +109,16 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin-top: -48px;
 }
 
 .landing__title h1 {
-  font-size: 60px;
+  font-size: 80px;
   font-weight: 300;
   text-align: center;
   margin: 0;
-  line-height: 1.2;
+  line-height: 0.9;
+  letter-spacing: -4px;
 }
 
 .landing__para {
@@ -123,10 +134,9 @@ body {
 .side__btn--wrapper {
   position: absolute;
   top: 50%;
-  width: 240px;
-  height: 240px;
-  border: 1px dotted #999;
-  background: white;
+  width: 350px;
+  height: 350px;
+  border: 1.5px dotted #999;
   transform: translateY(-50%) rotate(45deg);
   transform-origin: center;
   display: flex;
@@ -138,31 +148,30 @@ body {
 }
 
 .side__btn--wrapper.right {
-  right: -120px;
+  right: -180px;
 }
 
 .side__btn--wrapper.left {
-  left: -120px;
+  left: -180px;
 }
 
 .side__btn--content {
   transform: rotate(-45deg);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; 
   gap: 8px;
   width: 100%;
-  padding-left: 30px; 
-  padding-right: 30px;
   text-align: left;
 }
 
+
 .side__btn--wrapper.left .side__btn--content {
-  align-items: flex-end;
+  justify-content: flex-start; 
+  flex-direction: row-reverse;
   text-align: right;
-  padding-right: 30px;
-  padding-left: 30px;
 }
+
 
 .side__btn--content span {
   font-size: 14px;
@@ -171,33 +180,9 @@ body {
 }
 
 .arrow {
-  margin-top: 8px;
   width: 30px;
   height: 30px;
   object-fit: contain;
-}
-
-
-/* .side__btn {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  writing-mode: horizontal-tb;
-  font-size: 14px;
-  text-transform: uppercase; 
-}
-
-.side__btn.left {
-  left: 30px;
-}
-
-.side__btn.right {
-  right: 30px;
-} */
-
-.btn__icon {
-  width: 30px;
 }
 
 
@@ -215,6 +200,62 @@ body {
     font-size: 8px;
     text-transform: uppercase;
     line-height: 1.6;
+  }
+
+  .landing__title h1 {
+    font-size: 46px;
+    font-weight: 300;
+    text-align: center;
+    margin: 0;
+    line-height: 0.9;
+    letter-spacing: -2px;
+  }
+
+  .side__btn--wrapper {
+    position: absolute;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    border: 1.5px dotted #999;
+    transform: translateY(-50%) rotate(45deg);
+    transform-origin: center;
+    z-index: 1;
+    overflow: visible;
+    pointer-events: none;
+  }
+  
+  .side__btn--wrapper.right {
+    right: -75px;
+  }
+  
+  .side__btn--wrapper.left {
+    left: -75px;
+  }
+  
+  .side__btn--content {
+    transform: rotate(-45deg);
+    gap: 8px;
+    width: 100%;
+    text-align: left;
+  }
+  
+  
+  .side__btn--wrapper.left .side__btn--content {
+    flex-direction: row-reverse;
+    text-align: left;
+    padding-left: 80px;
+  }
+  
+  
+  .side__btn--content span {
+    font-size: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  .arrow {
+    width: 15px;
+    height: 15px;
   }
 
 }
