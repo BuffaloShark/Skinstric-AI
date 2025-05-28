@@ -1,14 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import Landing from './components/Landing';
-import Nav from './components/Nav';
+import "./App.css";
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Introduce from "./pages/Introduce";
 
 function App() {
   return (
-    <div className="App">
-      <Nav />
-      <Landing />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/introduce" element={<Introduce />} />
+      </Routes>
+    </Router>
   );
 }
 

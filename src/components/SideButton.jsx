@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import rightArrow from "../assets/skinstric-button-right.png";
 import leftArrow from "../assets/skinstric-button-left.png";
 
-const SideButton = ({ label, direction = "right" }) => {
+const SideButton = ({ label, direction = "right", to }) => {
   const iconSrc = direction === "right" ? rightArrow : leftArrow;
 
-  return (
+  const content = (
     <div className={`side__btn--wrapper ${direction}`}>
       <div className="side__btn--content">
         <span>{label}</span>
@@ -13,6 +14,9 @@ const SideButton = ({ label, direction = "right" }) => {
       </div>
     </div>
   );
+
+  return to ? <Link to={to}>{content}</Link> : content;
+  
 };
 
 export default SideButton;

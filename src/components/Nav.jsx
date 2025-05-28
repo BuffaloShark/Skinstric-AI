@@ -1,12 +1,12 @@
 import React from "react";
+import HomeButton from "./HomeButton";
+import CodeButton from "./CodeButton";
 
 const Nav = () => {
   return (
     <header className="nav">
-      <div className="logo">
-        SKINSTRIC <span>[ INTRO ]</span>
-      </div>
-      <button className="nav__btn">ENTER CODE</button>
+      <HomeButton />
+      <CodeButton />
     </header>
   );
 };
