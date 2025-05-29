@@ -7,7 +7,7 @@ const Location = () => {
   return (
     <>
       <div className="home__button--wrapper">
-        <HomeButton />
+        <HomeButton label="INTRO" />
       </div>
       <div className="location__page">
         <div className="location__header">TO START ANALYSIS</div>

@@ -100,6 +100,25 @@ button.btn__back {
   border: none;
 }
 
+.getSummary__button--wrapper {
+  position: absolute;
+  bottom: 36px;
+  right: 24px;
+  z-index: 10;
+}
+
+.btn__getSummary {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  flex-direction: row-reverse;
+  gap: 16px;
+  width: 32px;
+  text-align: left;
+  background-color: #ffffff00;
+  border: none;
+}
+
 button.btn__proceed {
   margin-bottom: 14px;
 }
@@ -364,7 +383,6 @@ button.btn__proceed {
   border: none;
   border-bottom: 1px solid #ccc;
   text-align: center;
-
 }
 
 
@@ -503,13 +521,153 @@ button.btn__proceed {
 
 
 
+/* RESULTS ************************************************/
+
+
+.results__page {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  padding: 8vh 2vw 0;
+  background: white;
+  overflow: hidden;
+}
+
+.results__header {
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  padding-top: 12px;
+  letter-spacing: -0.5px;
+  line-height: 20px;
+}
+
+.results__main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -48px;
+}
+
+.no-rotating__wrapper {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.no-rotating__box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 1.5px dotted #999;
+  background: transparent;
+}
+
+.no-rotating__box--3 {
+  width: 500px;
+  height: 500px;
+  z-index: 1;
+  opacity: 25%;
+}
+
+.no-rotating__box--2 {
+  width: 450px;
+  height: 450px;
+  z-index: 2;
+  opacity: 40%;
+}
+
+.no-rotating__box--1 {
+  width: 400px;
+  height: 400px;
+  z-index: 3;
+  opacity: 85%;
+}
+
+/* DIAMOND ******/
+
+.diamond-grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+}
+
+.diamond-box {
+  position: absolute;
+  width: 145px;
+  height: 145px;
+  background-color: #eeeeee;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.diamond-box.top {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 15%) rotate(45deg);
+}
+
+.diamond-box.right {
+  top: 50%;
+  left: 100%;
+  transform: translate(-115%, -50%) rotate(45deg);
+}
+
+.diamond-box.left {
+  top: 50%;
+  left: 0;
+  transform: translate(15%, -50%) rotate(45deg);
+}
+
+.diamond-box.bottom {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -115%) rotate(45deg);
+}
+
+.diamond-box span {
+  transform: rotate(-45deg);
+  display: inline-block;
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+  width: 100px;
+  line-height: 1.2;
+}
+
+
+/* LOADING STATES ************************************/
+
+
+.loading__input--header {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+
+
 
 /* ROTATING BOXES ************************************/
 
 
 @keyframes rotate {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(45deg);
   }
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
@@ -527,7 +685,7 @@ button.btn__proceed {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(45deg);
   border: 1.5px dotted #999;
   background: transparent;
   animation-name: rotate;
@@ -580,6 +738,30 @@ button.btn__proceed {
   height: 250px;
   z-index: 3;
   animation-duration: 240s;
+  opacity: 85%;
+}
+
+.rotating__box--9 {
+  width: 500px;
+  height: 500px;
+  z-index: 1;
+  animation-duration: 15s;
+  opacity: 25%;
+}
+
+.rotating__box--8 {
+  width: 450px;
+  height: 450px;
+  z-index: 2;
+  animation-duration: 30s;
+  opacity: 40%;
+}
+
+.rotating__box--7 {
+  width: 400px;
+  height: 400px;
+  z-index: 3;
+  animation-duration: 60s;
   opacity: 85%;
 }
 

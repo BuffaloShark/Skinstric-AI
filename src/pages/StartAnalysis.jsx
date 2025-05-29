@@ -9,7 +9,7 @@ const StartAnalysis = () => {
   return (
     <>
       <div className="home__button--wrapper">
-        <HomeButton />
+        <HomeButton label="INTRO" />
       </div>
       <div className="startAnalysis__page">
         <div className="startAnalysis__header">TO START ANALYSIS</div>
@@ -21,7 +21,7 @@ const StartAnalysis = () => {
         <div className="input__module">
             <AccessCamera />
         </div>
-        
+
         <div className="input__module">
             <AccessGallery />
         </div>

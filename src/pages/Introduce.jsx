@@ -6,7 +6,7 @@ const Introduce = () => {
   return (
     <>
       <div className="home__button--wrapper">
-        <HomeButton />
+        <HomeButton label="INTRO" />
       </div>
       <div className="introduce__page">
         <div className="introduce__header">TO START ANALYSIS</div>
