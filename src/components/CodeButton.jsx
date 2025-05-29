@@ -1,8 +1,8 @@
 import React from "react";
 
-const CodeButton = () => {
+const CodeButton = ({ label = "ENTER CODE" }) => {
     return (
-        <button className="nav__btn">ENTER CODE</button>
+        <button className="nav__btn">{label}</button>
     );
 };
 

@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <header className="nav">
       <HomeButton />
-      <CodeButton />
+      <CodeButton label="ENTER CODE" />
     </header>
   );
 };

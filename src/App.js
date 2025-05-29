@@ -6,6 +6,8 @@ import Location from "./pages/Location";
 import StartAnalysis from "./pages/StartAnalysis";
 import LoadingResults from "./components/LoadingResults";
 import Results from "./pages/Results";
+import Demographics from "./pages/Demographics";
+import LoadingCamera from "./components/LoadingCamera";
 
 function App() {
   return (
@@ -15,8 +17,10 @@ function App() {
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/location" element={<Location />} />
         <Route path="/startAnalysis" element={<StartAnalysis />} />
+        <Route path="/loadingcamera" element={<LoadingCamera />} />
         <Route path="/loadingresults" element={<LoadingResults />} />
         <Route path="/results" element={<Results />} />
+        <Route path="/demographics" element={<Demographics />} />
       </Routes>
     </Router>
   );
