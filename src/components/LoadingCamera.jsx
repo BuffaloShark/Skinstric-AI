@@ -26,9 +26,9 @@ const LoadingCamera = () => {
             TO GET BETTER RESULTS, BE SURE TO HAVE:
           </p>
           <ul className="loading__list">
-            <li className="loading__list--item">NEUTRAL EXPRESSION</li> 
-            <li className="loading__list--item">FRONTAL POSE</li>
-            <li className="loading__list--item">ADEQUATE LIGHTING</li>
+            <li className="loading__list--item">&#9671; NEUTRAL EXPRESSION</li> 
+            <li className="loading__list--item">&#9671; FRONTAL POSE</li>
+            <li className="loading__list--item">&#9671; ADEQUATE LIGHTING</li>
           </ul>
         </div>
       </div>
