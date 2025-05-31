@@ -2,6 +2,7 @@ import React from "react";
 import HomeButton from "../components/HomeButton";
 import BackButton from "../components/BackButton";
 import GetSummaryButton from "../components/GetSummaryButton";
+import { Link } from "react-router-dom";
 
 const Results = () => {
   return (
@@ -27,15 +28,30 @@ const Results = () => {
               <div className="no-rotating__box no-rotating__box--1"></div>
 
               <div className="diamond__wrapper">
-              <div class="diamond-grid">
-                <div class="diamond-box top"><span>DEMOGRAPHICS</span></div>
-                <div class="diamond-box right"><span>COSMETIC<br />CONCERNS</span></div>
-                <div class="diamond-box left"><span>SKIN TYPE<br />DETAILS</span></div>
-                <div class="diamond-box bottom"><span>WEATHER</span></div>
-            </div>
+  <div className="diamond-grid">
+    <Link to="/demographics" className="diamond-link top">
+      <div className="diamond-box">
+        <span>DEMOGRAPHICS</span>
+      </div>
+    </Link>
+    <Link to="/demographics" className="diamond-link right">
+      <div className="diamond-box">
+        <span>COSMETIC<br />CONCERNS</span>
+      </div>
+    </Link>
+    <Link to="/demographics" className="diamond-link left">
+      <div className="diamond-box">
+        <span>SKIN TYPE<br />DETAILS</span>
+      </div>
+    </Link>
+    <Link to="/demographics" className="diamond-link bottom">
+      <div className="diamond-box">
+        <span>WEATHER</span>
+      </div>
+    </Link>
+  </div>
+</div>
 
-
-              </div>
             </div>
 
           </div>

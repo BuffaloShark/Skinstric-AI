@@ -5,7 +5,7 @@ const ProceedButton = () => {
     return (
         <div className="btn__proceed">
           <button className="btn__proceed">
-            <img src={rightArrow} className="btn__proceed" alt="" />
+            <img src={rightArrow} className="btn__proceedArrow" alt="" />
             PROCEED</button>
         </div>
     );

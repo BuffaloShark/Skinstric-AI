@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoadingResults = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      console.log("LoadingResults mounted");
+      const timer = setTimeout(() => {
+        navigate("/results");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }, [navigate]);
+
   return (
     
     <div className="location__page">

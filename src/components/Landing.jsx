@@ -12,7 +12,7 @@ const Landing = () => {
           <h1>skincare</h1>
         </div>
 
-        <SideButton label="DISCOVER A.I." direction="left" />
+        <SideButton label="DISCOVER A.I." direction="left" to="/" />
         <SideButton label="TAKE TEST" direction="right" to="/introduce" />
 
         <div className="landing__para">

@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import HomeButton from "../components/HomeButton";
 import BackButton from "../components/BackButton";
 import ProceedButton from "../components/ProceedButton";
 
 const Location = () => {
+  const [inputValue, setInputValue] = useState("");
+  const navigate = useNavigate();
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && inputValue.trim()) {
+      navigate("/startAnalysis");
+    }
+  };
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <>
       <div className="home__button--wrapper">
@@ -28,6 +42,9 @@ const Location = () => {
                   id=""
                   placeholder="Where are you from?"
                   className="rotating__input"
+                  value={inputValue}
+                  onChange={handleChange}
+                  onKeyDown={handleKeyDown}
                 />
               </div>
             </div>
@@ -39,10 +56,14 @@ const Location = () => {
         <div className="back__button--wrapper">
             <BackButton />
         </div>
+        {inputValue.trim() && (
+          <Link to="/startAnalysis">
         <div className="proceed__button--wrapper">
             <ProceedButton />
         </div>
-      </div>
+        </Link>
+        )};
+        </div>
     </>
   );
 };
