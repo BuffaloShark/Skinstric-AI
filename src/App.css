@@ -749,8 +749,12 @@ button.btn__proceed {
 
 .demo__mainpanel {
   flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: #f4f4f4;
-  position: relative; 
   border-top: 1px solid #000;
   min-height: 400px;
 }
@@ -758,31 +762,52 @@ button.btn__proceed {
 .demo__main--label {
   font-size: 28px;
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 8px;
 }
 
 .circle-wrapper {
-  width: 280px;
-  height: 280px;
-  border: 2px solid black;
-  border-radius: 50%;
+  width: 240px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  bottom: 42px;
-  right: 42px;
+  margin-top: 20px;
+}
+
+.confidence-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(#111 0%, #eee 0%); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s ease;
+}
+
+.confidence-inner {
+  width: 95%;
+  height: 95%;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .confidence-value {
   font-size: 36px;
-  font-weight: 600;
+  font-weight: bold;
+  color: #111;
 }
 
 .percent {
-  font-size: 16px;
-  margin-left: 4px;
+  font-size: 14px;
+  color: #666;
 }
 
 .demo__confidence-table {
@@ -799,7 +824,7 @@ button.btn__proceed {
 .table-row {
   display: flex;
   justify-content: space-between;
-  padding: 8px 8px;
+  padding: 16px 8px;
 }
 
 .table-header {

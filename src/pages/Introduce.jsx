@@ -1,22 +1,29 @@
-import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import HomeButton from "../components/HomeButton";
 import BackButton from "../components/BackButton";
 import ProceedButton from "../components/ProceedButton";
+import { useUser } from "../context/UserData";
+import { useState } from "react";
 
 const Introduce = () => {
-  const [inputValue, setInputValue] = useState("");
+  const isValidInput = (value) => /^[A-Za-z\s]+$/.test(value.trim());
+
+  const { name, setName } = useUser();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter" && inputValue.trim()) {
-      navigate("/location");
+    if (e.key === "Enter") {
+      if (isValidInput(name)) {
+        setError("");
+        navigate("/location");
+      } else {
+        setError("Please enter a valid name");
+      }
     }
   };
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
+  const handleChange = (e) => setName(e.target.value);
 
   return (
     <>
@@ -41,10 +48,11 @@ const Introduce = () => {
                   id=""
                   placeholder="Introduce Yourself"
                   className="rotating__input"
-                  value={inputValue}
+                  value={name}
                   onChange={handleChange}
                   onKeyDown={handleKeyDown}
                 />
+                {error && <div className="error-message">{error}</div>}
               </div>
             </div>
 
@@ -54,14 +62,13 @@ const Introduce = () => {
         <div className="back__button--wrapper">
           <BackButton />
         </div>
-        {inputValue.trim() && (
+        {name.trim() && isValidInput(name) && (
           <Link to="/location">
             <div className="proceed__button--wrapper">
               <ProceedButton />
             </div>
           </Link>
         )}
-        ;
       </div>
     </>
   );

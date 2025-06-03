@@ -1,22 +1,29 @@
-import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import HomeButton from "../components/HomeButton";
 import BackButton from "../components/BackButton";
 import ProceedButton from "../components/ProceedButton";
+import { useUser } from "../context/UserData";
+import { useState } from "react";
 
 const Location = () => {
-  const [inputValue, setInputValue] = useState("");
+  const isValidInput = (value) => /^[A-Za-z\s]+$/.test(value.trim());
+
+  const { location, setLocation } = useUser();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter" && inputValue.trim()) {
-      navigate("/startAnalysis");
+    if (e.key === "Enter") {
+      if (isValidInput(location)) {
+        setError("");
+        navigate("/startAnalysis");
+      } else {
+        setError("Please enter a valid location (letters only).");
+      }
     }
   };
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
+  const handleChange = (e) => setLocation(e.target.value);
 
   return (
     <>
@@ -27,7 +34,6 @@ const Location = () => {
         <div className="location__header">TO START ANALYSIS</div>
         <main className="location__main">
           <div className="location__input--center">
-
             {/* ROTATING DIVS */}
 
             <div className="rotating__wrapper">
@@ -42,28 +48,28 @@ const Location = () => {
                   id=""
                   placeholder="Where are you from?"
                   className="rotating__input"
-                  value={inputValue}
+                  value={location}
                   onChange={handleChange}
                   onKeyDown={handleKeyDown}
                 />
+                {error && <div className="error-message">{error}</div>}
               </div>
             </div>
 
             {/* END ROTATING DIVS */}
-
           </div>
         </main>
         <div className="back__button--wrapper">
-            <BackButton />
+          <BackButton />
         </div>
-        {inputValue.trim() && (
+        {location.trim() && (
           <Link to="/startAnalysis">
-        <div className="proceed__button--wrapper">
-            <ProceedButton />
-        </div>
-        </Link>
-        )};
-        </div>
+            <div className="proceed__button--wrapper">
+              <ProceedButton />
+            </div>
+          </Link>
+        )}
+      </div>
     </>
   );
 };
