@@ -31,7 +31,7 @@ const DemoConfidenceTable = ({
               className={`table-row ${isSelected ? "selected" : ""}`}
               onClick={() => onSelect(label)}
             >
-              <span>{isSelected ? "◆" : "◇"} {formatLabel(label)}</span>
+              <span>{isSelected ? "◆" : "◇"} {formatLabel(label.toUpperCase())}</span>
               <span>{Math.round(value * 100)}%</span>
             </div>
           );

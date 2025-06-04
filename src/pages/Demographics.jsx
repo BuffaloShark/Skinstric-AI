@@ -94,13 +94,18 @@ const Demographics = () => {
         <div className="demographics__para--footer">
           If A.I. estimate is wrong, select the correct one.
         </div>
-        <div className="back__button--wrapper">
-          <BackButton />
-        </div>
-        <div className="getSummary__button--wrapper">
-          <ResetButton label="RESET" />
-          <ConfirmButton label="CONFIRM" onClick={handleConfirm} />  
-        </div>
+        <footer className="results__footer">
+  <div className="results__footer--buttons">
+    <div className="back__button--wrapper">
+    <BackButton />
+    </div>
+    <div className="responsive__button--wrapper">
+    <ResetButton label="RESET" />
+    <ConfirmButton label="CONFIRM" onClick={handleConfirm} />  
+    </div>
+  </div>
+</footer>
+
       </div>
     </>
   );

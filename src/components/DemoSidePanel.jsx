@@ -35,7 +35,7 @@ const DemoSidePanel = ({ prediction, selectedCategory, selectedValue, confirmedV
         className={`demo__sidepanel--item ${selectedCategory === "race" ? "selected" : ""}`}
         onClick={() => onSelect("race")}
       >
-        <div className="label">{formatLabel(getLabel("race"), "race")}</div>
+        <div className="label">{formatLabel(getLabel("race"), "race").toUpperCase()}</div>
         <div className="category">RACE</div>
       </div>
       <div
@@ -49,7 +49,7 @@ const DemoSidePanel = ({ prediction, selectedCategory, selectedValue, confirmedV
         className={`demo__sidepanel--item ${selectedCategory === "gender" ? "selected" : ""}`}
         onClick={() => onSelect("gender")}
       >
-        <div className="label">{formatLabel(getLabel("gender"), "gender")}</div>
+        <div className="label">{formatLabel(getLabel("gender"), "gender").toUpperCase()}</div>
         <div className="category">SEX</div>
       </div>
     </div>
