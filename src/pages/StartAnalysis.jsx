@@ -105,9 +105,9 @@ const StartAnalysis = () => {
         <div className="back__button--wrapper">
           <BackButton />
         </div>
-        <div className="proceed__button--wrapper">
+        {/* <div className="proceed__button--wrapper">
           <ProceedButton />
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -21,43 +21,48 @@ const Results = () => {
         </div>
         <main className="results__main">
           <div className="results__input--center">
-
             <div className="no-rotating__wrapper">
               <div className="no-rotating__box no-rotating__box--3"></div>
               <div className="no-rotating__box no-rotating__box--2"></div>
               <div className="no-rotating__box no-rotating__box--1"></div>
 
               <div className="diamond__wrapper">
-  <div className="diamond-grid">
-    <Link to="/demographics" className="diamond-link top">
-      <div className="diamond-box">
-        <span>DEMOGRAPHICS</span>
-      </div>
-    </Link>
-    <Link to="/demographics" className="diamond-link right">
-      <div className="diamond-box">
-        <span>COSMETIC<br />CONCERNS</span>
-      </div>
-    </Link>
-    <Link to="/demographics" className="diamond-link left">
-      <div className="diamond-box">
-        <span>SKIN TYPE<br />DETAILS</span>
-      </div>
-    </Link>
-    <Link to="/demographics" className="diamond-link bottom">
-      <div className="diamond-box">
-        <span>WEATHER</span>
-      </div>
-    </Link>
-  </div>
-</div>
-
+                <div className="diamond-grid">
+                  <Link to="/demographics" className="diamond-link top">
+                    <div className="diamond-box">
+                      <span>DEMOGRAPHICS</span>
+                    </div>
+                  </Link>
+                  <Link to="" className="diamond-link right">
+                    <div className="diamond-box not-functional">
+                      <span>
+                        COSMETIC
+                        <br />
+                        CONCERNS
+                      </span>
+                    </div>
+                  </Link>
+                  <Link to="" className="diamond-link left">
+                    <div className="diamond-box not-functional">
+                      <span>
+                        SKIN TYPE
+                        <br />
+                        DETAILS
+                      </span>
+                    </div>
+                  </Link>
+                  <Link to="" className="diamond-link bottom">
+                    <div className="diamond-box not-functional">
+                      <span>WEATHER</span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
             </div>
-
           </div>
         </main>
         <div className="back__button--wrapper">
-          <BackButton />
+          <BackButton to="/" />
         </div>
         <div className="getSummary__button--wrapper">
           <GetSummaryButton />

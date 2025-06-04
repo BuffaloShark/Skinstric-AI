@@ -1,47 +1,59 @@
 import React, { useState, useEffect } from "react";
 import HomeButton from "../components/HomeButton";
 import BackButton from "../components/BackButton";
-import CodeButton from "../components/CodeButton";
+import ResetButton from "../components/ResetButton";
 import DemoSidePanel from "../components/DemoSidePanel";
 import DemoMainPanel from "../components/DemoMainPanel";
 import DemoConfidenceTable from "../components/DemoConfidenceTable";
-import ResetButton from "../components/ResetButton";
+import ConfirmButton from "../components/ConfirmButton";
 import { useUser } from "../context/UserData";
 
 const Demographics = () => {
   const { prediction } = useUser();
 
   const [selectedCategory, setSelectedCategory] = useState("race");
-  const [selectedValue, setSelectedValue] = useState("");
+  const [confirmedValues, setConfirmedValues] = useState({});
+  const [pendingValue, setPendingValue] = useState("");
 
   useEffect(() => {
     if (prediction) {
-      setSelectedValue(
-        selectedCategory === "race"
-          ? prediction.ethnicity?.toLowerCase()
-          : selectedCategory === "age"
-          ? prediction.age
-          : prediction.gender?.toLowerCase()
-      );
+      const initial = {
+        race: prediction.ethnicity.toLowerCase(),
+        age: prediction.age,
+        gender: prediction.gender.toLowerCase(),
+      };
+  
+      setConfirmedValues(initial);
+      setPendingValue(initial[selectedCategory]);
     }
-  }, [prediction, selectedCategory]);
+  }, [prediction]);
+  
 
   if (!prediction) {
-    return <div>Loading prediction...</div>;
+    return <div>Please try again...</div>;
   }
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-  
-    if (category === "race") {
-      setSelectedValue(prediction.ethnicity.toLowerCase());
-    } else if (category === "age") {
-      setSelectedValue(prediction.age);
-    } else if (category === "gender") {
-      setSelectedValue(prediction.gender.toLowerCase());
-    }
+    setPendingValue(confirmedValues[category] || "");
+
+    const newValue =
+      category === "race"
+        ? prediction.ethnicity.toLowerCase()
+        : category === "age"
+        ? prediction.age
+        : prediction.gender.toLowerCase();
+
+    setPendingValue(newValue); 
   };
-  
+
+  const handleConfirm = () => {
+    console.log("Confirming", selectedCategory, "as", pendingValue);
+    setConfirmedValues((prev) => ({
+      ...prev,
+      [selectedCategory]: pendingValue,
+    })); 
+  };
 
   return (
     <>
@@ -62,18 +74,20 @@ const Demographics = () => {
             <DemoSidePanel
               prediction={prediction}
               selectedCategory={selectedCategory}
+              selectedValue={confirmedValues[selectedCategory]} 
+              confirmedValues={confirmedValues}
               onSelect={handleCategoryChange}
             />
             <DemoMainPanel
               prediction={prediction}
               selectedCategory={selectedCategory}
-              selectedValue={selectedValue}
+              selectedValue={confirmedValues[selectedCategory]} 
             />
             <DemoConfidenceTable
               prediction={prediction}
               selectedCategory={selectedCategory}
-              selectedValue={selectedValue}
-              onSelect={setSelectedValue}
+              selectedValue={pendingValue} 
+              onSelect={setPendingValue}
             />
           </div>
         </main>
@@ -85,7 +99,7 @@ const Demographics = () => {
         </div>
         <div className="getSummary__button--wrapper">
           <ResetButton label="RESET" />
-          <CodeButton label="CONFIRM" />
+          <ConfirmButton label="CONFIRM" onClick={handleConfirm} />  
         </div>
       </div>
     </>

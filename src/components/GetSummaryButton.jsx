@@ -4,7 +4,7 @@ import rightArrow from "../assets/skinstric-button-right.png";
 const GetSummaryButton = () => {
     return (
         <div className="btn__getSummary">
-          <button className="btn__getSummary">
+          <button className="btn__getSummary not-functional">
             <img src={rightArrow} className="btn__getSummary" alt="" />
             GET&nbsp;SUMMARY</button>
         </div>

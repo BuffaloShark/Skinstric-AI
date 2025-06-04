@@ -21,21 +21,24 @@ const DemoConfidenceTable = ({
         <span>{selectedCategory.toUpperCase()}</span>
         <span>A.I. CONFIDENCE</span>
       </div>
-      {Object.entries(categoryData).map(([label, value]) => {
-        const isSelected = label === selectedValue;
-        return (
-          <div
-            key={label}
-            className={`table-row ${isSelected ? "selected" : ""}`}
-            onClick={() => onSelect(label)}
-          >
-            <span>{label === selectedValue ? "◆" : "◇"} {formatLabel(label)}</span>
-            <span>{Math.round(value * 100)}%</span>
-          </div>
-        );
-      })}
+      {Object.entries(categoryData)
+        .sort((a, b) => b[1] - a[1])
+        .map(([label, value]) => {
+          const isSelected = label === selectedValue;
+          return (
+            <div
+              key={label}
+              className={`table-row ${isSelected ? "selected" : ""}`}
+              onClick={() => onSelect(label)}
+            >
+              <span>{isSelected ? "◆" : "◇"} {formatLabel(label)}</span>
+              <span>{Math.round(value * 100)}%</span>
+            </div>
+          );
+        })}
     </div>
   );
+  
 };
 
 export default DemoConfidenceTable;
