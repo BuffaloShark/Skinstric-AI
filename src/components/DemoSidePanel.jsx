@@ -6,6 +6,13 @@ const DemoSidePanel = ({ prediction, selectedCategory, selectedValue, confirmedV
   }, [selectedValue]);
 
   const getLabel = (category) => {
+
+    /* ADDED 6.5 TO REFLECT CHANGE ONSELECT*/
+    if (category === selectedCategory && selectedValue !== undefined && selectedValue !== "") {
+      return selectedValue
+    }
+    /* END OF NEW CODE */
+    
     const confirmed = confirmedValues?.[category];
     
     if (confirmed !== undefined && confirmed !== "") {

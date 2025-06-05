@@ -3,6 +3,7 @@ import HomeButton from "../components/HomeButton";
 import BackButton from "../components/BackButton";
 import GetSummaryButton from "../components/GetSummaryButton";
 import { Link } from "react-router-dom";
+import StartAgainButton from "../components/StartAgainButton";
 
 const Results = () => {
   return (
@@ -62,7 +63,7 @@ const Results = () => {
           </div>
         </main>
         <div className="back__button--wrapper">
-          <BackButton to="/" />
+          <StartAgainButton to="/startAnalysis" />
         </div>
         <div className="getSummary__button--wrapper">
           <GetSummaryButton />
