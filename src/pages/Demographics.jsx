@@ -35,10 +35,15 @@ const Demographics = () => {
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-    setPendingValue(confirmedValues[category] || "");
+    // setPendingValue(confirmedValues[category] || "");
+
+    const confirmed = confirmedValues[category]; // NEW LINE 6.5
 
     const newValue =
-      category === "race"
+      confirmed !== undefined && confirmed !== "" // NEW LINE 6.5
+      // category === "race"
+        ? confirmed // NEW
+        : category === "race" // NEW
         ? prediction.ethnicity.toLowerCase()
         : category === "age"
         ? prediction.age
@@ -74,14 +79,15 @@ const Demographics = () => {
             <DemoSidePanel
               prediction={prediction}
               selectedCategory={selectedCategory}
-              selectedValue={confirmedValues[selectedCategory]} 
+              selectedValue={pendingValue} 
+              currentDisplayValue={pendingValue}
               confirmedValues={confirmedValues}
               onSelect={handleCategoryChange}
             />
             <DemoMainPanel
               prediction={prediction}
               selectedCategory={selectedCategory}
-              selectedValue={confirmedValues[selectedCategory]} 
+              selectedValue={pendingValue} 
             />
             <DemoConfidenceTable
               prediction={prediction}
